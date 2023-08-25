@@ -1,0 +1,31 @@
+给一个不多于 5 位的正整数（如 a = 12346），求它是几位数和逆序打印出各位数字。
+
+class Test:
+ 
+    # 计算数字的位数
+    def test_num(self, num):
+        try:
+            # 定义一个 length 的变量，来计算数字的长度
+            length = 0
+            while num != 0:
+                # 判断当 num 不为 0 的时候，则每次都除以10取整
+                length += 1
+                num = int(num) // 10
+            if length > 5:
+                return "请输入正确的数字"
+            return length
+        except ValueError:
+            return "请输入正确的数字"
+ 
+    # 逆序打印出个位数
+    def test_sorted(self, num):
+        if self.test_num(num) != "请输入正确的数字":
+            # 逆序打印出数字
+            sorted_num = num[::-1]
+            # 返回逆序的个位数
+            return sorted_num[-1]
+ 
+print(Test().test_sorted('12346'))
+ 
+结果：
+1

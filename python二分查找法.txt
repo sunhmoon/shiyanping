@@ -1,0 +1,45 @@
+纯算法：
+arr_list = [5,7,11,22,27,33,39,52,58]
+number = 11
+count = 0
+left = 0
+right = len(arr_list)-1
+while left<=right:
+    middle = (left+right)//2
+    count += 1
+    if number > arr_list[middle]:
+        left = middle +1
+    elif number < arr_list[middle]:
+        right = middle - 1
+    else:
+        print(f'数字{number}已找到，索引值为{middle}')
+        break
+else:
+    print(f'数字{number}没有找到')
+print(f'一共用了{count}次查找')
+
+# 数字11已找到，索引值为2， 一共用了3次查找
+
+递归函数：
+arr_list = [5,7,11,22,27,33,39,52,58]
+
+def binary_search(number,left,right):
+    if left <= right:
+        middle = (left + right) // 2
+        if number < arr_list[middle]:
+            right = middle - 1
+        elif number > arr_list[middle]:
+            left = middle + 1
+        else:
+            return middle
+        return binary_search(number,left,right)
+    else:
+        return -1
+
+print(binary_search(11,0,len(arr_list)-1))
+
+二分法适用情况：  
+必须是有序的序列。 
+对数据量大小有要求。 
+数据量太小不适合二分查找，与直接遍历相比效率提升不明显。 
+数据量太大也不适合用二分查找，因为数组需要连续的存储空间，若数据量太大，往往找不到存储如此大规模数据的连续内存空间

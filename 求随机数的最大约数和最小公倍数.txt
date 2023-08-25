@@ -1,0 +1,36 @@
+产生两个0~100之间的随机整数a和b，求这两个整数的最大公约数和最小公倍数。（ 两个数的最小公倍数 = 两个数的乘积 / 两个数的最大公约数）
+import random
+ 
+a=random.randint(0,100)
+ 
+b=random.randint(0,100)
+ 
+i=a
+ 
+j=b
+ 
+print('a=',a)
+ 
+print('b=',b)
+ 
+while(a):
+ 
+    if a<b:
+ 
+        t=a
+ 
+        a=b
+ 
+        b=t
+ 
+    a%=b
+ 
+print("这两个正整数的最大公约数为：",b)
+ 
+c=i
+ 
+while (not(c%i==0 and c%j==0)):
+ 
+    c+=1
+ 
+print("这两个正整数的最小公倍数为：",c)
